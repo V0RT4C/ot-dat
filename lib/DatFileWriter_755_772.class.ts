@@ -5,134 +5,134 @@ import { DatFileWriter } from './DatFileWriter.abstract.ts';
 export class DatFileWriter_755_772 extends DatFileWriter {
 
     protected _writeThingFlags(thing : DatThing) : void {
-        if (thing.ground){
+        if (thing.flags.ground){
             this._buffer.writeUint8(DAT_FLAGS_755_772.GROUND);
-            this._buffer.writeUint16LE(thing.groundSpeed);
+            this._buffer.writeUint16LE(thing.flags.ground.speed);
         }
 
-        if (thing.groundBorder){
+        if (thing.flags.groundBorder){
             this._buffer.writeUint8(DAT_FLAGS_755_772.GROUND_BORDER);
         }
 
-        if (thing.onBottom){
+        if (thing.flags.onBottom){
             this._buffer.writeUint8(DAT_FLAGS_755_772.ON_BOTTOM);
         }
 
-        if (thing.onTop){
+        if (thing.flags.onTop){
             this._buffer.writeUint8(DAT_FLAGS_755_772.ON_TOP);
         }
 
-        if (thing.container){
+        if (thing.flags.container){
             this._buffer.writeUint8(DAT_FLAGS_755_772.STACKABLE);
         }
 
-        if (thing.stackable){
+        if (thing.flags.stackable){
             this._buffer.writeUint8(DAT_FLAGS_755_772.STACKABLE);
         }
 
-        if (thing.multiUsable){
+        if (thing.flags.multiUseable){
             this._buffer.writeUint8(DAT_FLAGS_755_772.MULTI_USE);
         }
 
-        if (thing.forceUse){
+        if (thing.flags.forceUse){
             this._buffer.writeUint8(DAT_FLAGS_755_772.FORCE_USE);
         }
 
-        if (thing.writable){
+        if (thing.flags.writable){
             this._buffer.writeUint8(DAT_FLAGS_755_772.WRITABLE);
-            this._buffer.writeUint16LE(thing.writableLength);
+            this._buffer.writeUint16LE(thing.flags.writable.length);
         }
 
-        if (thing.writableOnce){
+        if (thing.flags.writableOnce){
             this._buffer.writeUint8(DAT_FLAGS_755_772.WRITABLE_ONCE);
-            this._buffer.writeUint16LE(thing.writableLength);
+            this._buffer.writeUint16LE(thing.flags.writableOnce.length);
         }
 
-        if (thing.fluidContainer){
+        if (thing.flags.fluidContainer){
             this._buffer.writeUint8(DAT_FLAGS_755_772.FLUID_CONTAINER);
         }
 
-        if (thing.fluid){
+        if (thing.flags.fluid){
             this._buffer.writeUint8(DAT_FLAGS_755_772.FLUID);
         }
 
-        if (thing.unpassable){
+        if (thing.flags.unpassable){
             this._buffer.writeUint8(DAT_FLAGS_755_772.UNPASSABLE);
         }
 
-        if (thing.unmovable){
+        if (thing.flags.unmovable){
             this._buffer.writeUint8(DAT_FLAGS_755_772.UNMOVABLE);
         }
 
-        if (thing.blockMissile){
+        if (thing.flags.blockMissile){
             this._buffer.writeUint8(DAT_FLAGS_755_772.BLOCK_MISSILE);
         }
 
-        if (thing.blockPathfinder){
+        if (thing.flags.blockPathfinder){
             this._buffer.writeUint8(DAT_FLAGS_755_772.BLOCK_PATHFINDER);
         }
 
-        if (thing.pickupable){
+        if (thing.flags.pickupable){
             this._buffer.writeUint8(DAT_FLAGS_755_772.PICKUPABLE);
         }
 
-        if (thing.lightInfo){
+        if (thing.flags.lightInfo){
             this._buffer.writeUint8(DAT_FLAGS_755_772.LIGHT_INFO);
-            this._buffer.writeUint16LE(thing.lightLevel);
-            this._buffer.writeUint16LE(thing.lightColor);
+            this._buffer.writeUint16LE(thing.flags.lightInfo.level);
+            this._buffer.writeUint16LE(thing.flags.lightInfo.color);
         }
 
-        if (thing.floorChange){
+        if (thing.flags.floorChange){
             this._buffer.writeUint8(DAT_FLAGS_755_772.FLOOR_CHANGE);
         }
 
-        if (thing.fullGround){
+        if (thing.flags.fullGround){
             this._buffer.writeUint8(DAT_FLAGS_755_772.FULL_GROUND);
         }
 
-        if (thing.hasElevation){
+        if (thing.flags.hasElevation){
             this._buffer.writeUint8(DAT_FLAGS_755_772.HAS_ELEVATION);
-            this._buffer.writeUint16LE(thing.elevation);
+            this._buffer.writeUint16LE(thing.flags.hasElevation.height);
         }
 
-        if (thing.hasOffset){
+        if (thing.flags.hasOffset){
             this._buffer.writeUint8(DAT_FLAGS_755_772.HAS_OFFSET);
-            this._buffer.writeUint16LE(thing.offsetX);
-            this._buffer.writeUint16LE(thing.offsetY);
+            this._buffer.writeUint16LE(thing.flags.hasOffset.offsetX);
+            this._buffer.writeUint16LE(thing.flags.hasOffset.offsetY);
         }
 
-        if (thing.minimap){
+        if (thing.flags.minimap){
             this._buffer.writeUint8(DAT_FLAGS_755_772.MINIMAP);
-            this._buffer.writeUint16LE(thing.minimapColor);
+            this._buffer.writeUint16LE(thing.flags.minimap.color);
         }
 
-        if (thing.rotatable){
+        if (thing.flags.rotatable){
             this._buffer.writeUint8(DAT_FLAGS_755_772.ROTATABLE);
         }
 
-        if (thing.lyingObject){
+        if (thing.flags.lyingObject){
             this._buffer.writeUint8(DAT_FLAGS_755_772.LYING_OBJECT);
         }
 
-        if (thing.hangable){
+        if (thing.flags.hangable){
             this._buffer.writeUint8(DAT_FLAGS_755_772.HANGABLE);
         }
 
-        if (thing.vertical){
+        if (thing.flags.vertical){
             this._buffer.writeUint8(DAT_FLAGS_755_772.VERTICAL);
         }
 
-        if (thing.horizontal){
+        if (thing.flags.horizontal){
             this._buffer.writeUint8(DAT_FLAGS_755_772.HORIZONTAL);
         }
 
-        if (thing.alwaysAnimate){
+        if (thing.flags.alwaysAnimate){
             this._buffer.writeUint8(DAT_FLAGS_755_772.ALWAYS_ANIMATE);
         }
 
-        if (thing.isLensHelp){
+        if (thing.flags.isLensHelp){
             this._buffer.writeUint8(DAT_FLAGS_755_772.LENS_HELP);
-            this._buffer.writeUint16LE(thing.lensHelpValue);
+            this._buffer.writeUint16LE(thing.flags.isLensHelp.value);
         }
 
         this._buffer.writeUint8(0xFF);

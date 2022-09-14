@@ -1,7 +1,7 @@
 import { Bytes } from './Bytes.class.ts';
 import { DatThing } from './DatThing.class.ts';
 import { ThingContainer } from "../lib/ThingContainer.class.ts";
-import { DAT_TEXTURE_NAMES, THING_CATEGORY } from "../const.ts";
+import { THING_CATEGORY } from "../const.ts";
 
 export abstract class DatFileReader extends Bytes {
     protected abstract _version : number;
@@ -102,39 +102,37 @@ export abstract class DatFileReader extends Bytes {
     }
 
     public readThingTextureInfo(thing : DatThing){
-        thing.setTexture(DAT_TEXTURE_NAMES.WIDTH, this.readUint8());
-        thing.setTexture(DAT_TEXTURE_NAMES.HEIGHT, this.readUint8());
+        thing.texture.width = this.readUint8();
+        thing.texture.height = this.readUint8();
 
-        if (thing.width > 1 || thing.height > 1){
-            let realSize = this.readUint8();
-            let exactSize = Math.min(realSize, Math.max(thing.width * 32, thing.height * 32));
-            thing.setTexture(DAT_TEXTURE_NAMES.REAL_SIZE, realSize);
-            thing.setTexture(DAT_TEXTURE_NAMES.EXACT_SIZE, exactSize);
+        if (thing.texture.width > 1 || thing.texture.height > 1){
+            thing.texture.realSize = this.readUint8();
+            thing.texture.exactSize = Math.min(thing.texture.realSize, Math.max(thing.texture.width * 32, thing.texture.height * 32));
         }else{
-            thing.setTexture(DAT_TEXTURE_NAMES.REAL_SIZE, 32);
-            thing.setTexture(DAT_TEXTURE_NAMES.EXACT_SIZE, Math.min(32, Math.max(thing.width * 32, thing.height * 32)));
+            thing.texture.realSize = 32;
+            thing.texture.exactSize = Math.min(32, Math.max(thing.texture.width * 32, thing.texture.height * 32))
         }
 
-        thing.setTexture(DAT_TEXTURE_NAMES.LAYERS, this.readUint8());
-        thing.setTexture(DAT_TEXTURE_NAMES.PATTERN_X, this.readUint8());
-        thing.setTexture(DAT_TEXTURE_NAMES.PATTERN_Y, this.readUint8());
+        thing.texture.layers = this.readUint8();
+        thing.texture.patternX = this.readUint8();
+        thing.texture.patternY = this.readUint8();
 
         if (this._version > 1){
-            thing.setTexture(DAT_TEXTURE_NAMES.PATTERN_Z, this.readUint8());
+            thing.texture.patternZ = this.readUint8();
         }else{
-            thing.setTexture(DAT_TEXTURE_NAMES.PATTERN_Z, 1);
+            thing.texture.patternZ = 1;
         }
 
-        thing.setTexture(DAT_TEXTURE_NAMES.ANIMATION, this.readUint8());
-
-        let sprites = thing.width * thing.height * thing.layers * thing.patternX * thing.patternY * thing.patternZ * thing.animations;
+        thing.texture.animations = this.readUint8();
+        
+        let sprites = thing.texture.width * thing.texture.height * thing.texture.layers * thing.texture.patternX * thing.texture.patternY * thing.texture.patternZ * thing.texture.animations;
 
         //Animationphases
         //(North, East, South, West)
         for (let i=0; i < sprites; i++){
             let sprId = this.readUint16LE();
             if (sprId){
-                thing.addSpriteId(sprId);
+                thing.spriteIds.push(sprId);
             }
         }
 

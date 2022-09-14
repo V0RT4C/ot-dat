@@ -77,24 +77,24 @@ export abstract class DatFileWriter {
     }
 
     protected _writeThingTextureInfo(thing : DatThing) : void {
-        this._buffer.writeUint8(thing.width);
-        this._buffer.writeUint8(thing.height);
+        this._buffer.writeUint8(thing.texture.width);
+        this._buffer.writeUint8(thing.texture.height);
 
-        if (thing.width > 1 || thing.height > 1){
-            this._buffer.writeUint8(thing.realSize);
+        if (thing.texture.width > 1 || thing.texture.height > 1){
+            this._buffer.writeUint8(thing.texture.realSize);
         }
         
-        this._buffer.writeUint8(thing.layers);
-        this._buffer.writeUint8(thing.patternX);
-        this._buffer.writeUint8(thing.patternY);
+        this._buffer.writeUint8(thing.texture.layers);
+        this._buffer.writeUint8(thing.texture.patternX);
+        this._buffer.writeUint8(thing.texture.patternY);
 
         if (this._version >= 755){
-            this._buffer.writeUint8(thing.patternZ);
+            this._buffer.writeUint8(thing.texture.patternZ);
         }
 
-        this._buffer.writeUint8(thing.animations);
+        this._buffer.writeUint8(thing.texture.animations);
 
-        let sprites = thing.width * thing.height * thing.layers * thing.patternX * thing.patternY * thing.patternZ * thing.animations;
+        let sprites = thing.texture.width * thing.texture.height * thing.texture.layers * thing.texture.patternX * thing.texture.patternY * thing.texture.patternZ * thing.texture.animations;
 
         for (let i=0; i < sprites; i++){
             if (thing.spriteIds[i]){

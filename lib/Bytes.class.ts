@@ -153,10 +153,6 @@
     public toArrayBuffer() : ArrayBuffer {
         return this.buffer;
     }
-
-    public toBlob() : Blob {
-        return new Blob([this.buffer]);
-    }
 }
 
 function NotAnIntError(value : any) : Error {

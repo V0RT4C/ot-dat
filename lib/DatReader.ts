@@ -16,8 +16,6 @@ export const DatReader = (datBuffer : Uint8Array, version? : number) => {
     (datBuffer[2] << 16)) +
     (datBuffer[3] * 0x1000000)).toString(16).toUpperCase();
 
-    console.log(signature);
-
     const signatures = Object.entries(DAT_SIGNATURES);
 
     for (const [key, value] of signatures){

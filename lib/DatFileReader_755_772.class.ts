@@ -1,4 +1,4 @@
-import { DAT_FLAGS_755_772, DAT_FLAG_NAMES } from './../const.ts';
+import { DAT_FLAGS_755_772 } from './../const.ts';
 import { DatThing } from './../lib/DatThing.class.ts';
 import { DatFileReader } from "./../lib/DatFileReader.abstract.ts";
 
@@ -9,110 +9,110 @@ export class DatFileReader_755_772 extends DatFileReader {
         switch(flag){
             case DAT_FLAGS_755_772.GROUND:{
                     const speed = this.readUint16LE();
-                    thing.setFlag(DAT_FLAG_NAMES.GROUND, { speed });
+                    thing.flags.ground = { speed };
                 }
                 break;
             case DAT_FLAGS_755_772.GROUND_BORDER:
-                thing.setFlag(DAT_FLAG_NAMES.GROUND_BORDER, true);
+                thing.flags.groundBorder = true;
                 break;
             case DAT_FLAGS_755_772.ON_BOTTOM:
-                thing.setFlag(DAT_FLAG_NAMES.ON_BOTTOM, true);
+                thing.flags.onBottom = true;
                 break;
             case DAT_FLAGS_755_772.ON_TOP:
-                thing.setFlag(DAT_FLAG_NAMES.ON_TOP, true);
+                thing.flags.onTop = true;
                 break;
             case DAT_FLAGS_755_772.CONTAINER:
-                thing.setFlag(DAT_FLAG_NAMES.CONTAINER, true);
+                thing.flags.container = true;
                 break;
             case DAT_FLAGS_755_772.STACKABLE:
-                thing.setFlag(DAT_FLAG_NAMES.STACKABLE, true);
+                thing.flags.stackable = true;
                 break;
             case DAT_FLAGS_755_772.MULTI_USE:
-                thing.setFlag(DAT_FLAG_NAMES.MULTI_USEABLE, true);
+                thing.flags.multiUseable = true;
                 break;
             case DAT_FLAGS_755_772.FORCE_USE:
-                thing.setFlag(DAT_FLAG_NAMES.FORCE_USE, true);
+                thing.flags.forceUse = true;
                 break;
             case DAT_FLAGS_755_772.WRITABLE:{
                     const length = this.readUint16LE();
-                    thing.setFlag(DAT_FLAG_NAMES.WRITABLE, { length });
+                    thing.flags.writable = { length };
                 }
                 break;
             case DAT_FLAGS_755_772.WRITABLE_ONCE:{
                     const length = this.readUint16LE();
-                    thing.setFlag(DAT_FLAG_NAMES.WRITABLE_ONCE, { length });
+                    thing.flags.writableOnce = { length };
                 }
                 break;
             case DAT_FLAGS_755_772.FLUID_CONTAINER:
-                thing.setFlag(DAT_FLAG_NAMES.FLUID_CONTAINER, true);
+                thing.flags.fluidContainer = true;
                 break;
             case DAT_FLAGS_755_772.FLUID:
-                thing.setFlag(DAT_FLAG_NAMES.FLUID, true);
+                thing.flags.fluid = true;
                 break;
             case DAT_FLAGS_755_772.UNPASSABLE:
-                thing.setFlag(DAT_FLAG_NAMES.UNPASSABLE, true);
+                thing.flags.unpassable = true;
                 break;
             case DAT_FLAGS_755_772.UNMOVABLE:
-                thing.setFlag(DAT_FLAG_NAMES.UNMOVABLE, true);
+                thing.flags.unmovable = true;
                 break;
             case DAT_FLAGS_755_772.BLOCK_MISSILE:
-                thing.setFlag(DAT_FLAG_NAMES.BLOCK_MISSILE, true);
+                thing.flags.blockMissile = true;
                 break;
             case DAT_FLAGS_755_772.BLOCK_PATHFINDER:
-                thing.setFlag(DAT_FLAG_NAMES.BLOCK_PATHFINDER, true);
+                thing.flags.blockPathfinder = true;
                 break;
             case DAT_FLAGS_755_772.PICKUPABLE:
-                thing.setFlag(DAT_FLAG_NAMES.PICKUPABLE, true);
+                thing.flags.pickupable = true;
                 break;
             case DAT_FLAGS_755_772.LIGHT_INFO:{
                     const level = this.readUint16LE();
                     const color = this.readUint16LE();
-                    thing.setFlag(DAT_FLAG_NAMES.LIGHT_INFO, { level, color });
+                    thing.flags.lightInfo = { level, color };
                 }
                 break;
             case DAT_FLAGS_755_772.FLOOR_CHANGE:
-                thing.setFlag(DAT_FLAG_NAMES.FLOOR_CHANGE, true);
+                thing.flags.floorChange = true;
                 break;
             case DAT_FLAGS_755_772.FULL_GROUND:
-                thing.setFlag(DAT_FLAG_NAMES.FULL_GROUND, true);
+                thing.flags.fullGround = true;
                 break;
             case DAT_FLAGS_755_772.HAS_ELEVATION:{
                     const height = this.readUint16LE();
-                    thing.setFlag(DAT_FLAG_NAMES.HAS_ELEVATION, { height });
+                    thing.flags.hasElevation = { height };
                 }
                 break;
             case DAT_FLAGS_755_772.HAS_OFFSET:{
                     const offsetX = this.readUint16LE();
                     const offsetY = this.readUint16LE();
-                    thing.setFlag(DAT_FLAG_NAMES.HAS_OFFSET, { offsetX, offsetY });
+                    thing.flags.hasOffset = { offsetX, offsetY };
                 }
                 break;
             case DAT_FLAGS_755_772.MINIMAP:{
                     const color = this.readUint16LE();
-                    thing.setFlag(DAT_FLAG_NAMES.MINIMAP, { color });
+                    thing.flags.minimap = { color };
                 }
                 break;
             case DAT_FLAGS_755_772.ROTATABLE:
-                thing.setFlag(DAT_FLAG_NAMES.ROTATABLE, true);
+                thing.flags.rotatable = true;
                 break;
             case DAT_FLAGS_755_772.LYING_OBJECT:
-                thing.setFlag(DAT_FLAG_NAMES.LYING_OBJECT, true);
+                thing.flags.lyingObject = true;
                 break;
             case DAT_FLAGS_755_772.HANGABLE:
-                thing.setFlag(DAT_FLAG_NAMES.HANGABLE, true);
+                thing.flags.hangable = true;
                 break;
             case DAT_FLAGS_755_772.VERTICAL:
-                thing.setFlag(DAT_FLAG_NAMES.VERTICAL, true);
+                thing.flags.vertical = true;
                 break;
             case DAT_FLAGS_755_772.HORIZONTAL:
-                thing.setFlag(DAT_FLAG_NAMES.HORIZONTAL, true);
+                thing.flags.horizontal = true;
                 break;
             case DAT_FLAGS_755_772.ALWAYS_ANIMATE:
-                thing.setFlag(DAT_FLAG_NAMES.ALWAYS_ANIMATE, true);
+                thing.flags.alwaysAnimate = true;
                 break;
             case DAT_FLAGS_755_772.LENS_HELP:{
                     const value = this.readUint16LE();
-                    thing.setFlag(DAT_FLAG_NAMES.IS_LENS_HELP, { value });
+                    thing.flags.isLensHelp = { value };
                 }
                 break;
             default:
