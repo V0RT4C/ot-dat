@@ -21,7 +21,7 @@ The library should work for most JavaScript engines. Both on the frontend and th
 
 NodeJS:
 ```sh
-npm install @v0rt4c/ot-dat
+npm install @v0rt4c/dat
 ```
 
 Deno:
@@ -33,7 +33,7 @@ import { DatReader, DatWriter } from 'https://deno.land/x/v0rt4c_dat@0.1.0/mod.t
 
 NodeJS:
 ```js
-import { DatReader, DatWriter } from '@v0rt4c/ot-dat';
+import { DatReader, DatWriter } from '@v0rt4c/dat';
 import fs from 'fs';
 
 const datBuffer = fs.readFileSync('Tibia.dat');
