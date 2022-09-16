@@ -114,6 +114,8 @@ export class DatFileReader_740_750 extends DatFileReader {
                     thing.flags.isLensHelp = { value };
                 }
                 break;
+            default:
+                console.error('Unknown flag');
         }
     }
 }

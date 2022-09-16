@@ -117,10 +117,6 @@ export class DatFileReader_755_772 extends DatFileReader {
                 break;
             default:
                 console.error('Unknown flag');
-                console.log(thing);
-                Deno.exit(0);
-                // console.log(thing);
-                // Deno.exit(0);
         }
     }
 }
