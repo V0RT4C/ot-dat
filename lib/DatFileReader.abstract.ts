@@ -131,9 +131,7 @@ export abstract class DatFileReader extends Bytes {
         //(North, East, South, West)
         for (let i=0; i < sprites; i++){
             let sprId = this.readUint16LE();
-            if (sprId){
-                thing.spriteIds.push(sprId);
-            }
+            thing.spriteIds.push(sprId);
         }
 
         return thing;
